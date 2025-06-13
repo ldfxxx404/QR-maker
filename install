@@ -1,0 +1,35 @@
+#!/bin/bash
+set -e
+
+usage() {
+  echo "Использование: $0 [-b build и запуск] [-s stop] [-r restart] [-d delete]"
+  exit 1
+}
+
+if [ $# -ne 1 ]; then
+  usage
+fi
+
+case "$1" in
+  -b)
+    echo "Собираем Docker-образ и запускаем контейнер..."
+    docker-compose build --no-cache
+    docker-compose up -d
+    echo "Готово! Контейнер запущен."
+    ;;
+  -s)
+    echo "Останавливаем контейнер..."
+    docker-compose stop
+    ;;
+  -r)
+    echo "Перезапускаем контейнер..."
+    docker-compose restart
+    ;;
+  -d)
+    echo "Удаляем контейнеры и образы..."
+    docker-compose down --rmi all
+    ;;
+  *)
+    usage
+    ;;
+esac
