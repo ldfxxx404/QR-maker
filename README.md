@@ -1,37 +1,25 @@
-manual build
+### Manual
 
-how to build
-```bash 
+```bash
+# Build & start
 docker-compose up --build
-```
 
-how to stop 
-```bash
+# Stop
 docker-compose down
-```
 
-forse delete
-```bash
+# Force remove images
 docker-compose down --rmi all
 ```
 
-address in web
+[localhost:3000](http://localhost:3000)
+
+---
+
+### Automatic (`./install`)
+
 ```bash
-http://localhost:3000
-```
-___
-
-automatic build 
-```bash
-# build
-./install -b
-
-# restart
-./install -r
-
-# delete all
-./install -d 
-
-# stop
-./install -s
+-b    Build
+-r    Restart
+-s    Stop
+-d    Delete all
 ```
