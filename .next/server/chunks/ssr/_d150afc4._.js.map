@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/lxmxr/QR-maker/src/app/page.tsx"],"sourcesContent":["import { QRCodeSVG } from \"qrcode.react\";\n\nexport default function Main() {\n  return (\n    <div className=\"flex justify-center\">\n      <div className=\"mt-64 flex flex-col items-center gap-10\">\n        <QRCodeSVG value=\"https://github.com/ldfxxx404\" size={200}></QRCodeSVG>\n        <input  \n        type=\"text\" \n        placeholder=\"Input your text\"\n        className=\"px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500\"/>\n      </div>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAI,WAAU;;8BACb,8OAAC,sJAAA,CAAA,YAAS;oBAAC,OAAM;oBAA+B,MAAM;;;;;;8BACtD,8OAAC;oBACD,MAAK;oBACL,aAAY;oBACZ,WAAU;;;;;;;;;;;;;;;;;AAIlB","debugId":null}}]
-}
