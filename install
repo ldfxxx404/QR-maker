@@ -2,7 +2,7 @@
 set -e
 
 usage() {
-  echo "usage: $0 [-b build & start] [-s stop] [-r restart] [-d delete]"
+  echo "usage: $0 [-b build & start] [-s stop] [-r restart] [-d delete] [-dev run dev]"
   exit 1
 }
 
@@ -14,6 +14,9 @@ case "$1" in
   -b)
     docker-compose build --no-cache
     docker-compose up -d
+    ;;
+  -dev)
+    npm run dev
     ;;
   -s)
     docker-compose stop
