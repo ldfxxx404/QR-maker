@@ -2,8 +2,7 @@ services:
   web:
     container_name: qr-maker
     build:
-      context: ./QR-maker
-      dockerfile: ../Dockerfile
+      dockerfile: Dockerfile
     image: ldfxxx404/qr-maker:latest
     ports:
       - "3000:3000"
