@@ -1,12 +1,13 @@
-import { KeyboardEvent } from "react";
+import { HTMLAttributes, KeyboardEvent } from "react";
 
 interface InputProps {
   text: string;
   setText: (value: string) => void;
   onGenerate: () => void;
+  placeholder?: string;
 }
 
-function Input({ text, setText, onGenerate }: InputProps) {
+function InputField({ text, setText, onGenerate, placeholder }: InputProps) {
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && text.trim()) {
       onGenerate();
@@ -17,7 +18,7 @@ function Input({ text, setText, onGenerate }: InputProps) {
     <input
       id="qr-input"
       type="text"
-      placeholder="Input your text"
+      placeholder={placeholder}
       value={text}
       onChange={(e) => setText(e.target.value)}
       onKeyDown={handleKeyDown}
@@ -26,4 +27,4 @@ function Input({ text, setText, onGenerate }: InputProps) {
   );
 }
 
-export default Input;
+export default InputField;
