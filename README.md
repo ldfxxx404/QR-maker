@@ -22,5 +22,5 @@ docker-compose down --rmi all
 -r    Restart
 -s    Stop
 -d    Delete all
--dev  npm run dev
+-dev  Npm run dev
 ```
