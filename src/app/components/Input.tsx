@@ -1,4 +1,4 @@
-import { HTMLAttributes, KeyboardEvent } from "react";
+import { KeyboardEvent } from "react";
 
 interface InputProps {
   text: string;
@@ -8,7 +8,7 @@ interface InputProps {
 }
 
 function InputField({ text, setText, onGenerate, placeholder }: InputProps) {
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter" && text.trim()) {
       onGenerate();
     }
