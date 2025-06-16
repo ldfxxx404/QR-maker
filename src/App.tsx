@@ -5,13 +5,13 @@ import Input from "./components/ui/InputField";
 import useQRGenerator from "./components/hooks/useQRGenerator";
 
 function App() {
-  const { 
-    inputValue, 
-    handleInputChange, 
+  const {
+    inputValue,
+    handleInputChange,
     handleKeyDown,
-    generateQR, 
+    generateQR,
     qrCodeProps,
-    isGenerateDisabled 
+    isGenerateDisabled,
   } = useQRGenerator();
   return (
     <>
@@ -28,10 +28,7 @@ function App() {
         />
       </div>
       <div className="mt-7">
-        <Button 
-          onClick={generateQR} 
-          disabled={isGenerateDisabled}
-        />
+        <Button onClick={generateQR} disabled={isGenerateDisabled} />
       </div>
     </>
   );

@@ -30,6 +30,6 @@ export default function useQRGenerator() {
     handleKeyDown,
     generateQR,
     qrCodeProps,
-    isGenerateDisabled: !inputValue.trim() || inputValue === qrValue
-  }
+    isGenerateDisabled: !inputValue.trim() || inputValue === qrValue,
+  };
 }
