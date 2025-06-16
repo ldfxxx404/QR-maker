@@ -1,16 +1,15 @@
-# Node modules
+# Исключаем артефакты сборки и зависимости
 node_modules
 dist
 .cache
 .vite
 
-# Log files
+# Логи
 npm-debug.log
 yarn-debug.log
-yarn-error.log
 pnpm-debug.log
 
-# Editor & OS files
+# IDE и системные файлы
 .DS_Store
 .idea
 .vscode
@@ -20,6 +19,6 @@ pnpm-debug.log
 .git
 .gitignore
 
-# Docker-specific
+# Docker
 Dockerfile
 docker-compose.yml

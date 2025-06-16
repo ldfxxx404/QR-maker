@@ -1,9 +1,11 @@
+version: "3.8"
+
 services:
   frontend:
-    container_name: qr-maker
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: qr-maker
     ports:
-      - "1337:1337"
+      - "1337:80"
     restart: unless-stopped

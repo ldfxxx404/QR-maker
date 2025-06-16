@@ -12,20 +12,20 @@ fi
 
 case "$1" in
   -b)
-    docker-compose build --no-cache
-    docker-compose up -d
+    docker compose build --no-cache
+    docker compose up -d
     ;;
   -dev)
     npm run dev
     ;;
   -s)
-    docker-compose stop
+    docker compose stop
     ;;
   -r)
-    docker-compose restart
+    docker compose restart
     ;;
   -d)
-    docker-compose down --rmi all
+    docker compose down --rmi all
     ;;
   *)
     usage
