@@ -1,0 +1,25 @@
+# Node modules
+node_modules
+dist
+.cache
+.vite
+
+# Log files
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Editor & OS files
+.DS_Store
+.idea
+.vscode
+*.swp
+
+# Git
+.git
+.gitignore
+
+# Docker-specific
+Dockerfile
+docker-compose.yml
