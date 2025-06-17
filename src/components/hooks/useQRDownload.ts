@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const useQRDownload = () => {
+export const useQRDownload = (qrValue: string) => {
   const qrRef = useRef<HTMLDivElement>(null);
 
   const downloadQR = () => {
@@ -12,7 +12,7 @@ export const useQRDownload = () => {
     const image = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = image;
-    link.download = "qr-code.png";
+    link.download = `QR-${qrValue}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

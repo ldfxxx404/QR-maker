@@ -13,9 +13,10 @@ function App() {
     handleKeyDown,
     generateQR,
     qrCodeProps,
+    qrValue,
     isGenerateDisabled,
   } = useQRGenerator();
-  const { qrRef, downloadQR } = useQRDownload();
+  const { qrRef, downloadQR } = useQRDownload(qrValue);
   
   return (
     <>
