@@ -1,0 +1,24 @@
+# Исключаем артефакты сборки и зависимости
+node_modules
+dist
+.cache
+.vite
+
+# Логи
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+
+# IDE и системные файлы
+.DS_Store
+.idea
+.vscode
+*.swp
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
