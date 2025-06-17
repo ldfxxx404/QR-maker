@@ -26,6 +26,7 @@ export default function useQRGenerator() {
   };
   return {
     inputValue,
+    qrValue,
     handleInputChange,
     handleKeyDown,
     generateQR,

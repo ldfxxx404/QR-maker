@@ -1,16 +1,18 @@
-import type { HtmlHTMLAttributes, MouseEvent } from "react";
-interface ButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
+import type { HTMLAttributes, MouseEvent } from "react";
+
+interface GenerateButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text?: string;
   onShowAlert?: () => void;
   disabled?: boolean;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({
+export default function GenerateButton({
   onClick,
   text = "Generate",
   onShowAlert,
   ...props
-}: ButtonProps) {
+}: GenerateButtonProps) {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     onClick?.(e);
     onShowAlert?.();

@@ -1,8 +1,10 @@
 import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
-import Button from "./components/ui/Button";
-import Input from "./components/ui/InputField";
 import useQRGenerator from "./components/hooks/useQRGenerator";
+import { useQRDownload } from "./components/hooks/useQRDownload";
+import Input from "./components/ui/InputField";
+import GenerateButton from "./components/ui/Button";
+import DownloadButton from "./components/ui/DownloadButton";
 
 function App() {
   const {
@@ -11,11 +13,14 @@ function App() {
     handleKeyDown,
     generateQR,
     qrCodeProps,
+    qrValue,
     isGenerateDisabled,
   } = useQRGenerator();
+  const { qrRef, downloadQR } = useQRDownload(qrValue);
+  
   return (
     <>
-      <div className="flex justify-center mt-40">
+      <div className="flex justify-center mt-40" ref={qrRef}>
         <QRCodeCanvas {...qrCodeProps} />
       </div>
       <div className="mt-10">
@@ -27,8 +32,11 @@ function App() {
           maxLength={512}
         />
       </div>
-      <div className="mt-7">
-        <Button onClick={generateQR} disabled={isGenerateDisabled} />
+      <div className="mt-4">
+        <GenerateButton onClick={generateQR} disabled={isGenerateDisabled} />
+      </div>
+      <div className="mt-4">
+        <DownloadButton onClick={downloadQR}/>
       </div>
     </>
   );
