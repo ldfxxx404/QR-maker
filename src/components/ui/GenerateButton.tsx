@@ -7,12 +7,12 @@ interface GenerateButtonProps extends HTMLAttributes<HTMLButtonElement> {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function GenerateButton({
+export const GenerateQRButton = ({
   onClick,
   text = "Generate",
   onShowAlert,
   ...props
-}: GenerateButtonProps) {
+}: GenerateButtonProps) => {
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     onClick?.(e);
     onShowAlert?.();

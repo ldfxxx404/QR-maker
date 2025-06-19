@@ -1,10 +1,11 @@
 import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
-import useQRGenerator from "./components/hooks/useQRGenerator";
+import { useQRGenerator } from "./components/hooks/useQRGenerator";
 import { useQRDownload } from "./components/hooks/useQRDownload";
-import Input from "./components/ui/InputField";
-import GenerateButton from "./components/ui/Button";
-import DownloadButton from "./components/ui/DownloadButton";
+import { Switcher } from "./components/ui/ThemeSwitcher";
+import { Input } from "./components/ui/InputField";
+import { GenerateQRButton } from "./components/ui/GenerateButton";
+import { DownloadQRButton } from "./components/ui/DownloadButton";
 
 function App() {
   const {
@@ -17,9 +18,12 @@ function App() {
     isGenerateDisabled,
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
-  
+
   return (
     <>
+    <div className="flex justify-center items-center">
+    <Switcher />
+    </div>
       <div className="flex justify-center mt-40" ref={qrRef}>
         <QRCodeCanvas {...qrCodeProps} />
       </div>
@@ -33,10 +37,10 @@ function App() {
         />
       </div>
       <div className="mt-4">
-        <GenerateButton onClick={generateQR} disabled={isGenerateDisabled} />
+        <GenerateQRButton onClick={generateQR} disabled={isGenerateDisabled} />
       </div>
       <div className="mt-4">
-        <DownloadButton onClick={downloadQR}/>
+        <DownloadQRButton onClick={downloadQR} />
       </div>
     </>
   );
