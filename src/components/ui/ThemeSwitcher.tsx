@@ -1,15 +1,18 @@
-const toggleHandler = () => {
+import type { HTMLAttributes } from "react";
 
-    alert('theme switched');
- 
+interface ThemeSwitcherProps extends HTMLAttributes<HTMLButtonElement> {
+  isDark?: boolean;
+  onToggle: () => void;
 }
 
-export const Switcher = () => {
-    return(
-        
-        <button onClick={toggleHandler} className="absolute right-20 mt-10 bg-gray-950">
-            Toggle
-        </button>
-        
-    )
-}
+export const Switcher = ({
+  isDark,
+  onToggle,
+  ...props
+}: ThemeSwitcherProps) => {
+  return (
+    <button onClick={onToggle} {...props} style={{ fontSize: "35px" }}>
+      {isDark ? "🌙" : "☀️"}
+    </button>
+  );
+};

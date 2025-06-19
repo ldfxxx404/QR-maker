@@ -13,12 +13,20 @@
 :root {
   --gradient-start: rgba(238, 174, 202, 1);
   --gradient-end: rgba(148, 187, 233, 1);
-  background: radial-gradient(circle, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background: radial-gradient(
+    circle,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
 }
 
 [data-theme="dark"] {
   --gradient-start: rgba(36, 31, 49, 1);
   --gradient-end: rgba(0, 0, 0, 1);
   --light-text: #deddda;
-  background: radial-gradient(circle, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  background: radial-gradient(
+    circle,
+    var(--gradient-start) 0%,
+    var(--gradient-end) 100%
+  );
 }

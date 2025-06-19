@@ -2,6 +2,7 @@ import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
 import { useQRGenerator } from "./components/hooks/useQRGenerator";
 import { useQRDownload } from "./components/hooks/useQRDownload";
+import { ThemeSwitcher } from "./components/hooks/useSwitcher";
 import { Switcher } from "./components/ui/ThemeSwitcher";
 import { Input } from "./components/ui/InputField";
 import { GenerateQRButton } from "./components/ui/GenerateButton";
@@ -19,11 +20,13 @@ function App() {
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
 
+  const { theme, toggleTheme } = ThemeSwitcher();
+
   return (
     <>
-    <div className="flex justify-center items-center">
-    <Switcher />
-    </div>
+      <div className="flex justify-center items-center">
+        <Switcher onToggle={toggleTheme} isDark={theme === "dark"} />
+      </div>
       <div className="flex justify-center mt-40" ref={qrRef}>
         <QRCodeCanvas {...qrCodeProps} />
       </div>
