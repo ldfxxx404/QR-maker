@@ -18,15 +18,27 @@
     var(--gradient-start) 0%,
     var(--gradient-end) 100%
   );
+  --placeholder-color: #1E2126; 
+  --border-color: #1E2126;
+  --text-color: #1E2126;
+  --button-color: #1E2126;
+
 }
 
 [data-theme="dark"] {
   --gradient-start: rgba(36, 31, 49, 1);
   --gradient-end: rgba(0, 0, 0, 1);
-  --light-text: #deddda;
   background: radial-gradient(
     circle,
     var(--gradient-start) 0%,
     var(--gradient-end) 100%
   );
+  --placeholder-color: #deddda; 
+  --border-color: #deddda;
+  --text-color: #deddda;
+  --button-color: #deddda;
+}
+
+input::placeholder {
+  color: var(--placeholder-color)
 }

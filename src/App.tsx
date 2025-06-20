@@ -19,7 +19,6 @@ function App() {
     isGenerateDisabled,
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
-
   const { theme, toggleTheme } = ThemeSwitcher();
 
   return (
@@ -30,7 +29,7 @@ function App() {
       <div className="flex justify-center mt-40" ref={qrRef}>
         <QRCodeCanvas {...qrCodeProps} />
       </div>
-      <div className="mt-10">
+      <div className="mt-10 text-[var(--text-color)] border-[var(--border-color)]">
         <Input
           value={inputValue}
           onChange={handleInputChange}

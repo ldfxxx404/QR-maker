@@ -12,7 +12,8 @@ export const Input = ({
 }: InputProps) => {
   return (
     <input
-      className="p-2 border-2 rounded-lg border-[#1E2126] placeholder-[#1E2126] text-[#1E2126] dark:border-azure dark:placeholder-[#deddda] dark:text-[#deddda] dark:bg-transparent"
+      className="p-2 border-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed 
+             text-[var(--text-color)] border-[var(--border-color)] bg-transparent"
       value={value}
       onChange={onChange}
       placeholder={placeholder}
@@ -20,4 +21,4 @@ export const Input = ({
       {...props}
     />
   );
-}
+};
