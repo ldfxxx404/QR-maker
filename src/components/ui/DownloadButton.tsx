@@ -10,8 +10,8 @@ export const DownloadQRButton = ({
 }: DownloadButtonProps) => {
   return (
     <button
-      className="p-2 border-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed 
-             text-[var(--text-color)] border-[var(--border-color)] bg-transparent"
+      className="button-text p-2 border-2 rounded-lg disabled:opacity-50 
+      disabled:cursor-not-allowed border-[var(--border-color)] bg-transparent"
       {...props}
     >
       {text}

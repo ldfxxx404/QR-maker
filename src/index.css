@@ -42,3 +42,7 @@
 input::placeholder {
   color: var(--placeholder-color)
 }
+
+button.button-text {
+  color: #6C63FF;
+}
