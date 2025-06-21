@@ -10,7 +10,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
+html[data-theme="light"] {
+  --placeholder-color: #1e2126;
+  --border-color: #1e2126;
+  --text-color: #1e2126;
+  --button-color: #1e2126;
+
   --gradient-start: rgba(238, 174, 202, 1);
   --gradient-end: rgba(148, 187, 233, 1);
   background: radial-gradient(
@@ -18,14 +23,14 @@
     var(--gradient-start) 0%,
     var(--gradient-end) 100%
   );
-  --placeholder-color: #1E2126; 
-  --border-color: #1E2126;
-  --text-color: #1E2126;
-  --button-color: #1E2126;
-
 }
 
-[data-theme="dark"] {
+html[data-theme="dark"] {
+  --placeholder-color: #deddda;
+  --border-color: #deddda;
+  --text-color: #deddda;
+  --button-color: #deddda;
+
   --gradient-start: rgba(36, 31, 49, 1);
   --gradient-end: rgba(0, 0, 0, 1);
   background: radial-gradient(
@@ -33,16 +38,64 @@
     var(--gradient-start) 0%,
     var(--gradient-end) 100%
   );
-  --placeholder-color: #deddda; 
-  --border-color: #deddda;
-  --text-color: #deddda;
-  --button-color: #deddda;
+}
+
+html, body {
+  position: relative;
+  min-height: 100vh;
+  transition: 
+    background 1000ms,
+    color 550ms,
+    border-color 550ms;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  transition: opacity 1s;
+  pointer-events: none;
+}
+
+body::before {
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  opacity: 1;
+}
+
+body::after {
+  background: radial-gradient(
+    circle,
+    rgba(36, 31, 49, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0;
+}
+
+html[data-theme="dark"] body::before {
+  opacity: 0;
+}
+html[data-theme="dark"] body::after {
+  opacity: 1;
 }
 
 input::placeholder {
-  color: var(--placeholder-color)
+  color: var(--placeholder-color);
 }
 
 button.button-text {
-  color: #6C63FF;
+  color: var(--button-color);
+}
+
+button.button-border {
+  color: var(--border-color);
+}
+
+input.text-color {
+  color: var(--text-color);
 }

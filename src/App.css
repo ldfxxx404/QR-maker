@@ -3,6 +3,4 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  --text-color: #222222; /* светлая тема */
-  color: var(--text-color);
 }

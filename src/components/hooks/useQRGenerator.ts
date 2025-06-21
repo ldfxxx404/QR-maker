@@ -33,4 +33,4 @@ export const useQRGenerator = () => {
     qrCodeProps,
     isGenerateDisabled: !inputValue.trim() || inputValue === qrValue,
   };
-}
+};

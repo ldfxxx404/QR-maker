@@ -2,7 +2,7 @@ import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
 import { useQRGenerator } from "./components/hooks/useQRGenerator";
 import { useQRDownload } from "./components/hooks/useQRDownload";
-import { ThemeSwitcher } from "./components/hooks/useSwitcher";
+import { useTheme } from "./components/hooks/useSwitcher";
 import { Switcher } from "./components/ui/ThemeSwitcher";
 import { Input } from "./components/ui/InputField";
 import { GenerateQRButton } from "./components/ui/GenerateButton";
@@ -19,7 +19,7 @@ function App() {
     isGenerateDisabled,
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
-  const { theme, toggleTheme } = ThemeSwitcher();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
