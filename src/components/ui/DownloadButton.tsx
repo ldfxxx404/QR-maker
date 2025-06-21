@@ -4,16 +4,17 @@ interface DownloadButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text?: string;
 }
 
-export default function DownloadQRButton({
+export const DownloadQRButton = ({
   text = "Download",
   ...props
-}: DownloadButtonProps) {
+}: DownloadButtonProps) => {
   return (
     <button
-      className="p-2 border-[#1E2126] border-2 text-[#1E2126] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+      className="button-text p-2 border-2 rounded-lg disabled:opacity-50 
+      disabled:cursor-not-allowed border-[var(--border-color)] bg-transparent"
       {...props}
     >
       {text}
     </button>
   );
-}
+};

@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type KeyboardEvent } from "react";
 
-export default function useQRGenerator() {
+export const useQRGenerator = () => {
   const [inputValue, setInputValue] = useState("");
   const [qrValue, setQrValue] = useState("https://github.com/ldfxxx404");
 
@@ -33,4 +33,4 @@ export default function useQRGenerator() {
     qrCodeProps,
     isGenerateDisabled: !inputValue.trim() || inputValue === qrValue,
   };
-}
+};

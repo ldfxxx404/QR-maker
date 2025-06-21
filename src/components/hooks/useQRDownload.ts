@@ -12,7 +12,7 @@ export const useQRDownload = (qrValue: string) => {
     const image = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = image;
-    link.download = `QR-${qrValue.replace(/\s+/g, '_')}.png`;
+    link.download = `QR-${qrValue.replace(/\s+/g, "_")}.png`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

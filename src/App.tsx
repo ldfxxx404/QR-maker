@@ -1,10 +1,12 @@
 import "./App.css";
 import { QRCodeCanvas } from "qrcode.react";
-import useQRGenerator from "./components/hooks/useQRGenerator";
+import { useQRGenerator } from "./components/hooks/useQRGenerator";
 import { useQRDownload } from "./components/hooks/useQRDownload";
-import Input from "./components/ui/InputField";
-import GenerateButton from "./components/ui/Button";
-import DownloadButton from "./components/ui/DownloadButton";
+import { useTheme } from "./components/hooks/useSwitcher";
+import { Switcher } from "./components/ui/ThemeSwitcher";
+import { Input } from "./components/ui/InputField";
+import { GenerateQRButton } from "./components/ui/GenerateButton";
+import { DownloadQRButton } from "./components/ui/DownloadButton";
 
 function App() {
   const {
@@ -17,13 +19,17 @@ function App() {
     isGenerateDisabled,
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
-  
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <>
+      <div className="flex justify-center items-center">
+        <Switcher onToggle={toggleTheme} isDark={theme === "dark"} />
+      </div>
       <div className="flex justify-center mt-40" ref={qrRef}>
         <QRCodeCanvas {...qrCodeProps} />
       </div>
-      <div className="mt-10">
+      <div className="mt-10 text-[var(--text-color)] border-[var(--border-color)]">
         <Input
           value={inputValue}
           onChange={handleInputChange}
@@ -33,10 +39,10 @@ function App() {
         />
       </div>
       <div className="mt-4">
-        <GenerateButton onClick={generateQR} disabled={isGenerateDisabled} />
+        <GenerateQRButton onClick={generateQR} disabled={isGenerateDisabled} />
       </div>
       <div className="mt-4">
-        <DownloadButton onClick={downloadQR}/>
+        <DownloadQRButton onClick={downloadQR} />
       </div>
     </>
   );
