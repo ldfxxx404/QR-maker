@@ -10,6 +10,15 @@ import { GenerateQRButton } from "./components/ui/GenerateButton";
 import { DownloadQRButton } from "./components/ui/DownloadButton";
 import { ScanQRButton } from "./components/ui/ScanButton";
 
+function isUrl(text: string) {
+  try {
+    const url = new URL(text);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 function App() {
   const {
     inputValue,
@@ -59,8 +68,20 @@ function App() {
         <ScanQRButton onClick={triggerFileInput} />
       </div>
       {result && (
-        <div className="mt-2 text-green-600 break-all">
-          Scan result: {result}
+        <div className="mt-4 text-green-600 break-all">
+          Scan result:{" "}
+          {isUrl(result) ? (
+            <a
+              href={result}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-blue-600"
+            >
+              {result}
+            </a>
+          ) : (
+            result
+          )}
         </div>
       )}
       {error && <div className="mt-2 text-red-600">Scan error: {error}</div>}
