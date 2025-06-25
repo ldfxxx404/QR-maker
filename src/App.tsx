@@ -3,6 +3,7 @@ import { QRCodeCanvas } from "qrcode.react";
 import { useQRGenerator } from "./components/hooks/useQRGenerator";
 import { useQRDownload } from "./components/hooks/useQRDownload";
 import { useTheme } from "./components/hooks/useSwitcher";
+import { useQRScan } from "./components/hooks/useQRScan"; // Импортируйте useQRScan
 import { Switcher } from "./components/ui/ThemeSwitcher";
 import { Input } from "./components/ui/InputField";
 import { GenerateQRButton } from "./components/ui/GenerateButton";
@@ -21,6 +22,8 @@ function App() {
   } = useQRGenerator();
   const { qrRef, downloadQR } = useQRDownload(qrValue);
   const { theme, toggleTheme } = useTheme();
+  const { result, error, inputRef, onFileChange, triggerFileInput } =
+    useQRScan();
 
   return (
     <>
@@ -45,9 +48,22 @@ function App() {
       <div className="mt-4">
         <DownloadQRButton onClick={downloadQR} />
       </div>
+      <input
+        type="file"
+        accept="image/*"
+        ref={inputRef}
+        onChange={onFileChange}
+        style={{ display: "none" }}
+      />
       <div className="mt-4">
-        <ScanQRButton />
+        <ScanQRButton onClick={triggerFileInput} />
       </div>
+      {result && (
+        <div className="mt-2 text-green-600 break-all">
+          Scan result: {result}
+        </div>
+      )}
+      {error && <div className="mt-2 text-red-600">Scan error: {error}</div>}
     </>
   );
 }
