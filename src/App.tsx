@@ -7,7 +7,6 @@ import { Switcher } from "./components/ui/ThemeSwitcher";
 import { Input } from "./components/ui/InputField";
 import { GenerateQRButton } from "./components/ui/GenerateButton";
 import { DownloadQRButton } from "./components/ui/DownloadButton";
-import { ScanQRButton } from "./components/ui/ScanButton";
 
 function App() {
   const {
@@ -44,9 +43,6 @@ function App() {
       </div>
       <div className="mt-4">
         <DownloadQRButton onClick={downloadQR} />
-      </div>
-      <div className="mt-4">
-        <ScanQRButton />
       </div>
     </>
   );
